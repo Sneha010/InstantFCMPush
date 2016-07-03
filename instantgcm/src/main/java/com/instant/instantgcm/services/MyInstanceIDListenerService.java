@@ -19,7 +19,9 @@ package com.instant.instantgcm.services;
 import android.content.Intent;
 import android.util.Log;
 
+import com.google.firebase.iid.FirebaseInstanceIdService;
 import com.instant.instantgcm.utils.GCMRegisterUtils;
+
 
 public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
 

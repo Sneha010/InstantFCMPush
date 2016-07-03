@@ -22,30 +22,32 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.demo.instantpush.R;
 import com.demo.instantpush.RequestActivity;
-import com.google.android.gms.gcm.GcmListenerService;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
-public class MyGcmListenerService extends GcmListenerService {
+import java.util.Map;
+
+public class MyGcmListenerService extends FirebaseMessagingService {
 
     private static final String TAG = "MyGcmListenerService";
     /**
      * Called when message is received.
-     *
-     * @param from SenderID of the sender.
-     * @param data Data bundle containing message data as key/value pairs.
-     *             For Set of keys use data.keySet().
+     *@param remoteMessage Message data
      */
     // [START receive_message]
     @Override
-    public void onMessageReceived(String from, Bundle data) {
-        String message = data.getString("message");
-        Log.d(TAG, "From: " + from);
-        Log.d(TAG, "Message: " + message);
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+
+        String from = remoteMessage.getFrom();
+        Map data = remoteMessage.getData();
+
+        Log.d(TAG, "From: " + remoteMessage.getFrom());
+        Log.d(TAG, "Message: " + remoteMessage.getData());
 
         if (from.startsWith("/topics/")) {
             // message received from some topic.
@@ -54,7 +56,7 @@ public class MyGcmListenerService extends GcmListenerService {
         }
 
 
-        sendNotification(message);
+        sendNotification(data.toString());
 
     }
 
