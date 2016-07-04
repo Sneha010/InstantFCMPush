@@ -1,4 +1,4 @@
-package com.demo.instantpush;
+package com.instant.instantgcm;
 
 import android.support.v7.app.AppCompatActivity;
 

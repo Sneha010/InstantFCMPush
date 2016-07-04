@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InstantGCMPush</string>
+    <string name="reg_receive_error">Unable to receive GCM Token</string>
 </resources>

@@ -1,1 +1,1 @@
-include ':app', ':instantfcm', ':middlewarelib'
+include ':app'/*, ':instantfcm', ':middlewarelib'*/

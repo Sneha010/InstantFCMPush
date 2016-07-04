@@ -1,7 +1,7 @@
-package com.demo.instantpush;
+package com.instant.instantgcm;
 
 
-import com.instantgcm.middleware.net.MiddlewareDataInterface;
+import com.instant.instantgcm.middleware.net.MiddlewareDataInterface;
 
 /**
  * Created by Sneha Khadatare : 587823

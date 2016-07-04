@@ -1,16 +1,16 @@
-package com.demo.instantpush;
+package com.instant.instantgcm;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.instantgcm.middleware.GCMMiddlewareClient;
-import com.instantgcm.middleware.model.Chipcode;
-import com.instantgcm.middleware.model.Favorites;
-import com.instantgcm.middleware.model.PushResponse;
-import com.instantgcm.middleware.model.UpdateFavoriteRequest;
-import com.instantgcm.middleware.net.InstantGCMDeregistrationListener;
-import com.instantgcm.middleware.net.InstantGCMPostFavListener;
-import com.instantgcm.middleware.net.InstantGCMRegistrationListener;
+import com.instant.instantgcm.middleware.GCMMiddlewareClient;
+import com.instant.instantgcm.middleware.model.Chipcode;
+import com.instant.instantgcm.middleware.model.Favorites;
+import com.instant.instantgcm.middleware.model.PushResponse;
+import com.instant.instantgcm.middleware.model.UpdateFavoriteRequest;
+import com.instant.instantgcm.middleware.net.InstantGCMDeregistrationListener;
+import com.instant.instantgcm.middleware.net.InstantGCMPostFavListener;
+import com.instant.instantgcm.middleware.net.InstantGCMRegistrationListener;
 
 import java.util.ArrayList;
 

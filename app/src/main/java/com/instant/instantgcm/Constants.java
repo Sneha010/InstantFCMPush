@@ -1,4 +1,4 @@
-package com.demo.instantpush;
+package com.instant.instantgcm;
 
 /**
  * Created by Sneha Khadatare : 587823
