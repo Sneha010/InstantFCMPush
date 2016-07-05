@@ -59,9 +59,15 @@ public class MiddlewareDBClient {
             public void onResponse(Response<PushResponse> response,
                                    Retrofit retrofit) {
 
-                if(response!=null && response.body()!=null){
-                    PushResponse postResponse = response.body();
-                    instantGCMRegistrationListener.onRegisterSuccess(postResponse);
+                if(response!=null && response.body()!=null && response.body() != null){
+                    PushResponse pushResponse = response.body();
+                    if(pushResponse.getStatus() == 0){
+                        instantGCMRegistrationListener.onRegisterSuccess();
+                    }
+                    else{
+                        instantGCMRegistrationListener.onRegisterFailure(pushResponse.getMessage());
+                    }
+
                 }else{
                     instantGCMRegistrationListener.onRegisterFailure("Unable to Register");
                 }
@@ -89,13 +95,19 @@ public class MiddlewareDBClient {
             public void onResponse(Response<PushResponse> response,
                                    Retrofit retrofit) {
 
-                if(response!=null && response.body()!=null){
-                    PushResponse postResponse = response.body();
-                    instantGCMDeregistrationListener.onDeregisterSuccess(postResponse);
+                if(response!=null && response.body()!=null && response.body() != null){
+                    PushResponse pushResponse = response.body();
+                    if(pushResponse.getStatus() == 0){
+                        instantGCMDeregistrationListener.onDeregisterSuccess();
+                    }
+                    else{
+                        instantGCMDeregistrationListener.onDeregisterFailure(pushResponse.getMessage());
+                    }
+
                 }else{
                     instantGCMDeregistrationListener.onDeregisterFailure("Unable to Deregister");
                 }
-                Log.d("@@@" , "DeRegisterRequest onResponse called");
+
 
             }
 

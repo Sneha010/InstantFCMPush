@@ -1,7 +1,5 @@
 package com.instant.instantgcm.middleware.net;
 
-import com.instant.instantgcm.middleware.model.PushResponse;
-
 /**
  * Created by Sneha Khadatare : 587823
  * on 4/21/2016.
@@ -9,7 +7,7 @@ import com.instant.instantgcm.middleware.model.PushResponse;
 public interface InstantGCMRegistrationListener {
 
 
-    void onRegisterSuccess(PushResponse pushResponse);
+    void onRegisterSuccess();
 
 
     void onRegisterFailure(String failureMsg);

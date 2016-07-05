@@ -19,7 +19,7 @@ package com.instant.instantgcm.fcm.services;
 public class InstantGCMPreferences {
 
     public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
-    public static final String REGISTRATION_COMPLETE = "REGISTRATION_COMPLETE";
+    public static final String FCM_REGISTRATION_COMPLETE = "FCM_REGISTRATION_COMPLETE";
     public static final String PROJECT_ID = "PROJECT_ID";
 
 }

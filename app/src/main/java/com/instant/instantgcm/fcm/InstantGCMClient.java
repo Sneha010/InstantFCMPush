@@ -24,9 +24,6 @@ public class InstantGCMClient {
 
     public static void initialise(Context context , GCMDataInterface dataInterface , final GCMRegListener gcmRegListener){
         mGCMRegListener = gcmRegListener;
-       /* Intent intent = new Intent(context , RegistrationIntentService.class);
-        intent.putExtra(InstantGCMPreferences.PROJECT_ID , dataInterface.getProjectId());
-        context.startService(intent);*/
 
         registerReceiver(context);
 
@@ -37,7 +34,7 @@ public class InstantGCMClient {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
 
-            if(action.equals(InstantGCMPreferences.REGISTRATION_COMPLETE)){
+            if(action.equals(InstantGCMPreferences.FCM_REGISTRATION_COMPLETE)){
                 if(!TextUtils.isEmpty(GCMRegisterUtils.getGCMRegistrationId(context))){
                     mGCMRegListener.onGCMRegIdReceived(GCMRegisterUtils.getGCMRegistrationId(context));
                 }else
@@ -53,7 +50,7 @@ public class InstantGCMClient {
         if(!isReceiverRegistered) {
 
             IntentFilter filter = new IntentFilter();
-            filter.addAction(InstantGCMPreferences.REGISTRATION_COMPLETE);
+            filter.addAction(InstantGCMPreferences.FCM_REGISTRATION_COMPLETE);
 
             LocalBroadcastManager.getInstance(context).registerReceiver(mGCMTokenReceiver,
                     filter);

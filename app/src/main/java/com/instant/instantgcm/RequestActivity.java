@@ -36,8 +36,8 @@ public class RequestActivity extends BaseActivity {
         GCMMiddlewareClient.register(RequestActivity.this , new MiddlewareDataInterfaceImpl(),
                 new InstantGCMRegistrationListener() {
                     @Override
-                    public void onRegisterSuccess(PushResponse pushResponse) {
-                        Toast.makeText(RequestActivity.this, pushResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    public void onRegisterSuccess() {
+                        Toast.makeText(RequestActivity.this, "Register Successful!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -57,8 +57,8 @@ public class RequestActivity extends BaseActivity {
         GCMMiddlewareClient.deRegister(RequestActivity.this, new MiddlewareDataInterfaceImpl(),
                 new InstantGCMDeregistrationListener() {
                     @Override
-                    public void onDeregisterSuccess(PushResponse pushResponse) {
-                        Toast.makeText(RequestActivity.this, pushResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    public void onDeregisterSuccess() {
+                        Toast.makeText(RequestActivity.this, "Deregister Successful", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

@@ -7,7 +7,7 @@ package com.instant.instantgcm;
 
 public class Constants {
 
-    public static final String BASE_URL = "https://push.tcsmarathonapp.com/MarathonPushTest/";
+    public static final String BASE_URL = "https://push.tcsmarathonapp.com/MarathonPush_Chicago/resources/generic/";
     public static final String PROJECT_ID = "322419976239";
     public static final String DEVICE_ID = "352136062659210";
 }

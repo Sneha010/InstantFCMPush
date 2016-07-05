@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.instant.instantgcm.fcm.InstantGCMClient;
 import com.instant.instantgcm.fcm.net.GCMRegListener;
+import com.instant.instantgcm.fcm.utils.GCMRegisterUtils;
 import com.instant.instantgcm.middleware.model.PushPayload;
 import com.instant.instantgcm.middleware.model.UpdateFavoriteRequest;
 import com.instant.instantgcm.middleware.net.GCMDataInterfaceImpl;
@@ -31,7 +32,16 @@ public class GCMMiddlewareClient {
         }
         sDeviceId = middlewareDataInterface.getDeviceId();
         sInstantGCMRegistrationListener = instantGCMRegistrationListener;
-        InstantGCMClient.initialise(context, new GCMDataInterfaceImpl(middlewareDataInterface.getProjectId()), mGCMRegListener);
+
+        if(GCMRegisterUtils.getGCMRegistrationId(context) == null){
+
+            InstantGCMClient.initialise(context, new GCMDataInterfaceImpl(middlewareDataInterface.getProjectId()), mGCMRegListener);
+        }
+       else{
+            dbClient.registerRequest(new PushPayload(sDeviceId , Constants.PLATFORM , GCMRegisterUtils.getGCMRegistrationId(context)), sInstantGCMRegistrationListener);
+        }
+
+
     }
 
     public static MiddlewareDBClient getPushMiddleWareClient(MiddlewareDataInterface middlewareDataInterface) {

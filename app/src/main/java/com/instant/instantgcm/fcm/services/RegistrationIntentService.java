@@ -74,7 +74,7 @@ public class RegistrationIntentService extends IntentService {
         }
 
         // Notify UI that registration has completed, so the progress indicator can be hidden.
-        Intent registrationComplete = new Intent(InstantGCMPreferences.REGISTRATION_COMPLETE);
+        Intent registrationComplete = new Intent(InstantGCMPreferences.FCM_REGISTRATION_COMPLETE);
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 
